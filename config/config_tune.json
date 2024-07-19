@@ -1,0 +1,968 @@
+{
+  "datasetCommonParams": {
+    "dataset_root_dir": "/home/sharing/disk1/Datasets/MSA/MMSA_Standard",
+    "mosi": {
+      "aligned": {
+        "featurePath": "MOSI/Processed/aligned_50.pkl",
+        "seq_lens": [50, 50, 50],
+        "feature_dims": [768, 5, 20],
+        "train_samples": 1284,
+        "num_classes": 3,
+        "language": "en",
+        "KeyEval": "Loss"
+      },
+      "unaligned": {
+        "featurePath": "MOSI/Processed/unaligned_50.pkl",
+        "seq_lens": [50, 50, 50],
+        "feature_dims": [768, 5, 20],
+        "train_samples": 1284,
+        "num_classes": 3,
+        "language": "en",
+        "KeyEval": "Loss"
+      }
+    },
+    "msen": {
+      "aligned": {
+        "featurePath": "MOSI/Processed/aligned_50.pkl",
+        "seq_lens": [50, 50, 50],
+        "feature_dims": [768, 5, 20],
+        "train_samples": 1284,
+        "num_classes": 3,
+        "language": "en",
+        "KeyEval": "Loss"
+      },
+      "unaligned": {
+        "featurePath": "MOSI/Processed/unaligned_50.pkl",
+        "seq_lens": [50, 50, 50],
+        "feature_dims": [768, 5, 20],
+        "train_samples": 1284,
+        "num_classes": 3,
+        "language": "en",
+        "KeyEval": "Loss"
+      }
+    },
+    "mosei": {
+      "aligned": {
+        "featurePath": "MOSEI/Processed/aligned_50.pkl",
+        "seq_lens": [50, 50, 50],
+        "feature_dims": [768, 74, 35],
+        "train_samples": 16326,
+        "num_classes": 3,
+        "language": "en",
+        "KeyEval": "Loss"
+      },
+      "unaligned": {
+        "featurePath": "MOSEI/Processed/unaligned_50.pkl",
+        "seq_lens": [50, 500, 375],
+        "feature_dims": [768, 74, 35],
+        "train_samples": 16326,
+        "num_classes": 3,
+        "language": "en",
+        "KeyEval": "Loss"
+      }
+    },
+    "sims": {
+      "unaligned": {
+        "featurePath": "SIMS/Processed/unaligned_39.pkl",
+        "seq_lens": [39, 400, 55],
+        "feature_dims": [768, 33, 709],
+        "train_samples": 1368,
+        "num_classes": 3,
+        "language": "cn",
+        "KeyEval": "Loss"
+      }
+    }
+  },
+  "tfn": {
+    "commonParams": {
+      "need_data_aligned": false,
+      "need_model_aligned": false,
+      "need_normalized": true,
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "text_out",
+        "post_fusion_dim",
+        "dropouts",
+        "batch_size",
+        "learning_rate"
+      ],
+      "hidden_dims": [
+        [128, 16, 128],
+        [64, 16, 64],
+        [128, 32, 128],
+        [64, 32, 64]
+      ],
+      "text_out": [32, 64, 128, 256],
+      "post_fusion_dim": [16, 32, 64, 128],
+      "dropouts": [
+        [0.3, 0.3, 0.3, 0.3],
+        [0.2, 0.2, 0.2, 0.2],
+        [0.4, 0.4, 0.4, 0.4],
+        [0.3, 0.3, 0.3, 0.5]
+      ],
+      "batch_size": [32, 64, 128],
+      "learning_rate": [0.0005, 0.001, 0.002, 0.005]
+    }
+  },
+  "lmf": {
+    "commonParams": {
+      "need_data_aligned": false,
+      "need_model_aligned": false,
+      "need_normalized": true,
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "dropouts",
+        "rank",
+        "batch_size",
+        "learning_rate",
+        "factor_lr",
+        "weight_decay"
+      ],
+      "hidden_dims": [
+        [128, 16, 128],
+        [64, 16, 64],
+        [128, 32, 128],
+        [256, 32, 256],
+        [64, 32, 64]
+      ],
+      "dropouts": [
+        [0.3, 0.3, 0.3, 0.5],
+        [0.3, 0.3, 0.3, 0.3],
+        [0.2, 0.2, 0.2, 0.2],
+        [0.4, 0.4, 0.4, 0.4]
+      ],
+      "rank": [3, 4, 5, 6],
+      "batch_size": [32, 64, 128],
+      "learning_rate": [0.0005, 0.001, 0.002, 0.005],
+      "factor_lr": [0.0001, 0.0005, 0.001],
+      "weight_decay": [0.0, 0.0001, 0.001, 0.005]
+    }
+  },
+  "mfn": {
+    "commonParams": {
+      "need_data_aligned": true,
+      "need_model_aligned": true,
+      "need_normalized": true,
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "memsize",
+        "windowsize",
+        "NN1Config",
+        "NN2Config",
+        "gamma1Config",
+        "gamma2Config",
+        "outConfig",
+        "batch_size",
+        "learning_rate"
+      ],
+      "hidden_dims": [
+        [128, 16, 128],
+        [64, 16, 64],
+        [128, 32, 128],
+        [256, 32, 256],
+        [64, 32, 64]
+      ],
+      "memsize": [64, 128, 256, 300, 400],
+      "windowsize": 2,
+      "NN1Config": {
+        "drop": [0.0, 0.2, 0.5, 0.7],
+        "shapes": [32, 64, 128, 256]
+      },
+      "NN2Config": {
+        "drop": [0.0, 0.2, 0.5, 0.7],
+        "shapes": [32, 64, 128, 256]
+      },
+      "gamma1Config": {
+        "drop": [0.0, 0.2, 0.5, 0.7],
+        "shapes": [32, 64, 128, 256]
+      },
+      "gamma2Config": {
+        "drop": [0.0, 0.2, 0.5, 0.7],
+        "shapes": [32, 64, 128, 256]
+      },
+      "outConfig": {
+        "drop": [0.0, 0.2, 0.5, 0.7],
+        "shapes": [32, 64, 128, 256]
+      },
+      "batch_size": [32, 64, 128],
+      "learning_rate": [0.0005, 0.001, 0.002, 0.005]
+    }
+  },
+  "ef_lstm": {
+    "commonParams": {
+      "need_data_aligned": true,
+      "need_model_aligned": true,
+      "need_normalized": false,
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "num_layers",
+        "dropout",
+        "batch_size",
+        "learning_rate",
+        "weight_decay"
+      ],
+      "hidden_dims": [16, 32, 64, 128, 256],
+      "num_layers": [2, 3, 4],
+      "dropout": [0.2, 0.3, 0.4, 0.5],
+      "batch_size": [32, 64, 128],
+      "learning_rate": [0.0005, 0.001, 0.002, 0.005],
+      "weight_decay": [0.0, 0.0001, 0.001, 0.005]
+    }
+  },
+  "lf_dnn": {
+    "commonParams": {
+      "need_data_aligned": false,
+      "need_model_aligned": false,
+      "need_normalized": true,
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "text_out",
+        "post_fusion_dim",
+        "dropouts",
+        "batch_size",
+        "learning_rate",
+        "weight_decay"
+      ],
+      "hidden_dims": [
+        [128, 16, 128],
+        [64, 16, 64],
+        [128, 32, 128],
+        [256, 32, 256],
+        [64, 32, 64]
+      ],
+      "text_out": [32, 64, 128, 256],
+      "post_fusion_dim": [16, 32, 64, 128],
+      "dropouts": [
+        [0.3, 0.3, 0.3, 0.3],
+        [0.2, 0.2, 0.2, 0.2],
+        [0.4, 0.4, 0.4, 0.4],
+        [0.3, 0.3, 0.3, 0.5]
+      ],
+      "batch_size": [32, 64, 128],
+      "learning_rate": [0.0005, 0.001, 0.002, 0.005],
+      "weight_decay": [0.0, 0.001, 0.005, 0.01]
+    }
+  },
+  "graph_mfn": {
+    "commonParams": {
+      "need_data_aligned": true,
+      "need_model_aligned": true,
+      "need_normalized": false,
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "memsize",
+        "inner_node_dim",
+        "NNConfig",
+        "gamma1Config",
+        "gamma2Config",
+        "outConfig",
+        "batch_size",
+        "learning_rate",
+        "weight_decay"
+      ],
+      "hidden_dims": [
+        [128, 16, 128],
+        [64, 16, 64],
+        [128, 32, 128],
+        [256, 32, 256],
+        [64, 32, 64]
+      ],
+      "memsize": [64, 128, 256, 300, 400],
+      "inner_node_dim": [20, 32, 64, 128],
+      "NNConfig": {
+        "drop": [0.0, 0.2, 0.5, 0.7],
+        "shapes": [32, 64, 128, 256]
+      },
+      "gamma1Config": {
+        "drop": [0.0, 0.2, 0.5, 0.7],
+        "shapes": [32, 64, 128, 256]
+      },
+      "gamma2Config": {
+        "drop": [0.0, 0.2, 0.5, 0.7],
+        "shapes": [32, 64, 128, 256]
+      },
+      "outConfig": {
+        "drop": [0.0, 0.2, 0.5, 0.7],
+        "shapes": [32, 64, 128, 256]
+      },
+      "batch_size": [32, 64],
+      "learning_rate": [0.0005, 0.001, 0.002, 0.005],
+      "weight_decay": [0.0, 0.001, 0.005, 0.01]
+    }
+  },
+  "bert_mag": {
+    "commonParams": {
+      "need_data_aligned": true,
+      "need_model_aligned": false,
+      "use_bert": true,
+      "pretrained": "bert-base-uncased",
+      "transformers": "bert",
+      "early_stop": 8,
+      "need_normalize": false,
+      "weight_decay": 0.0
+    },
+    "debugParams": {
+      "d_paras": ["batch_size", "learning_rate", "beta_shift", "dropout_prob"],
+      "batch_size": [32, 48, 64],
+      "learning_rate": [2e-5, 5e-5, 0.0001, 1e-5],
+      "beta_shift": [1],
+      "dropout_prob": [0.1, 0.2, 0.3, 0.4]
+    }
+  },
+  "mult": {
+    "commonParams": {
+      "need_data_aligned": false,
+      "need_model_aligned": false,
+      "early_stop": 8,
+      "use_bert": false,
+      "use_bert_finetune": false,
+      "attn_mask": true,
+      "update_epochs": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "attn_dropout_a",
+        "attn_dropout_v",
+        "relu_dropout",
+        "embed_dropout",
+        "res_dropout",
+        "dst_feature_dim_nheads",
+        "batch_size",
+        "learning_rate",
+        "nlevels",
+        "conv1d_kernel_size_l",
+        "conv1d_kernel_size_a",
+        "conv1d_kernel_size_v",
+        "text_dropout",
+        "attn_dropout",
+        "output_dropout",
+        "grad_clip",
+        "patience",
+        "weight_decay"
+      ],
+      "attn_dropout_a": [0.0, 0.1, 0.2],
+      "attn_dropout_v": [0.0, 0.1, 0.2],
+      "relu_dropout": [0.0, 0.1, 0.2],
+      "embed_dropout": [0.0, 0.1, 0.2],
+      "res_dropout": [0.0, 0.1, 0.2],
+      "dst_feature_dim_nheads": [
+        [30, 6],
+        [30, 10],
+        [32, 8],
+        [36, 6],
+        [40, 5],
+        [40, 8],
+        [40, 10],
+        [50, 10]
+      ],
+      "batch_size": [4, 8, 16],
+      "learning_rate": [0.0005, 0.001, 0.002, 0.005],
+      "nlevels": [2, 4, 6],
+      "conv1d_kernel_size_l": [1, 3, 5],
+      "conv1d_kernel_size_a": [1, 3, 5],
+      "conv1d_kernel_size_v": [1, 3, 5],
+      "text_dropout": [0.1, 0.2, 0.3, 0.4, 0.5],
+      "attn_dropout": [0.1, 0.2, 0.3, 0.4, 0.5],
+      "output_dropout": [0.1, 0.2, 0.3, 0.4, 0.5],
+      "grad_clip": [0.6, 0.8, 1.0],
+      "patience": [5, 10, 20],
+      "weight_decay": [0.0, 0.001, 0.005]
+    }
+  },
+  "misa": {
+    "commonParams": {
+      "need_data_aligned": false,
+      "need_model_aligned": false,
+      "use_finetune": true,
+      "use_bert": true,
+      "early_stop": 8,
+      "update_epochs": 2,
+      "rnncell": "lstm",
+      "use_cmd_sim": true,
+      "transformers": "bert",
+      "pretrained": "bert-base-uncased"
+    },
+    "debugParams": {
+      "d_paras": [
+        "batch_size",
+        "learning_rate",
+        "hidden_size",
+        "dropout",
+        "reverse_grad_weight",
+        "diff_weight",
+        "sim_weight",
+        "sp_weight",
+        "recon_weight",
+        "grad_clip",
+        "weight_decay"
+      ],
+      "batch_size": [16, 32, 64],
+      "learning_rate": [0.0001, 0.001, 0.0005],
+      "hidden_size": [64, 128, 256],
+      "dropout": [0.5, 0.2, 0.0],
+      "reverse_grad_weight": [0.5, 0.8, 1.0],
+      "diff_weight": [0.1, 0.3, 0.5],
+      "sim_weight": [0.5, 0.8, 1.0],
+      "sp_weight": [0.0, 1.0],
+      "recon_weight": [0.5, 0.8, 1.0],
+      "grad_clip": [-1.0, 0.8, 1.0],
+      "weight_decay": [0.0, 5e-5, 0.002]
+    }
+  },
+  "mfm": {
+    "commonParams": {
+      "need_data_aligned": true,
+      "need_model_aligned": true,
+      "need_normalized": false,
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "zy_size",
+        "zl_size",
+        "za_size",
+        "zv_size",
+        "fy_size",
+        "fl_size",
+        "fa_size",
+        "fv_size",
+        "zy_to_fy_dropout",
+        "zl_to_fl_dropout",
+        "za_to_fa_dropout",
+        "zv_to_fv_dropout",
+        "fy_to_y_dropout",
+        "lda_mmd",
+        "lda_xl",
+        "lda_xa",
+        "lda_xv",
+        "memsize",
+        "windowsize",
+        "NN1Config",
+        "NN2Config",
+        "gamma1Config",
+        "gamma2Config",
+        "outConfig",
+        "batch_size",
+        "learning_rate"
+      ],
+      "hidden_dims": [
+        [128, 16, 128],
+        [64, 16, 64],
+        [128, 32, 128],
+        [256, 32, 256],
+        [64, 32, 64]
+      ],
+      "zy_size": [8, 16, 32, 48, 64, 80],
+      "zl_size": [32, 64, 88, 128, 156, 256],
+      "za_size": [8, 16, 32, 48, 64, 80],
+      "zv_size": [8, 16, 32, 48, 64, 80],
+      "fy_size": [8, 16, 32, 48, 64, 80],
+      "fl_size": [32, 64, 88, 128, 156, 256],
+      "fa_size": [8, 16, 32, 48, 64, 80],
+      "fv_size": [8, 16, 32, 48, 64, 80],
+      "zy_to_fy_dropout": [0.0, 0.2, 0.5, 0.7],
+      "zl_to_fl_dropout": [0.0, 0.2, 0.5, 0.7],
+      "za_to_fa_dropout": [0.0, 0.2, 0.5, 0.7],
+      "zv_to_fv_dropout": [0.0, 0.2, 0.5, 0.7],
+      "fy_to_y_dropout": [0.0, 0.2, 0.5, 0.7],
+      "lda_mmd": [10, 50, 100, 200],
+      "lda_xl": [0.01, 0.1, 0.5, 1.0, 2.0, 5.0, 10.0],
+      "lda_xa": [0.01, 0.1, 0.5, 1.0, 2.0, 5.0, 10.0],
+      "lda_xv": [0.01, 0.1, 0.5, 1.0, 2.0, 5.0, 10.0],
+      "memsize": [64, 128, 256, 300, 400],
+      "windowsize": 2,
+      "NN1Config": {
+        "drop": [0.0, 0.2, 0.5, 0.7],
+        "shapes": [32, 64, 128, 256]
+      },
+      "NN2Config": {
+        "drop": [0.0, 0.2, 0.5, 0.7],
+        "shapes": [32, 64, 128, 256]
+      },
+      "gamma1Config": {
+        "drop": [0.0, 0.2, 0.5, 0.7],
+        "shapes": [32, 64, 128, 256]
+      },
+      "gamma2Config": {
+        "drop": [0.0, 0.2, 0.5, 0.7],
+        "shapes": [32, 64, 128, 256]
+      },
+      "outConfig": {
+        "drop": [0.0, 0.2, 0.5, 0.7],
+        "shapes": [32, 64, 128, 256]
+      },
+      "batch_size": [32, 64, 128],
+      "learning_rate": [0.0005, 0.001, 0.002, 0.005]
+    }
+  },
+  "mtfn": {
+    "commonParams": {
+      "need_data_aligned": false,
+      "need_model_aligned": false,
+      "need_normalized": true,
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "text_out",
+        "post_fusion_dim",
+        "post_text_dim",
+        "post_audio_dim",
+        "post_video_dim",
+        "dropouts",
+        "post_dropouts",
+        "batch_size",
+        "learning_rate",
+        "M",
+        "T",
+        "A",
+        "V",
+        "text_weight_decay",
+        "audio_weight_decay",
+        "video_weight_decay",
+        "weight_decay"
+      ],
+      "hidden_dims": [
+        [128, 16, 128],
+        [64, 16, 64],
+        [128, 32, 128],
+        [256, 32, 256],
+        [64, 32, 64]
+      ],
+      "text_out": [32, 64, 128, 256],
+      "post_fusion_dim": [16, 32, 64, 128],
+      "post_text_dim": [8, 16, 32, 64],
+      "post_audio_dim": [4, 5],
+      "post_video_dim": [8, 16, 32, 64],
+      "dropouts": [
+        [0.3, 0.3, 0.3],
+        [0.2, 0.2, 0.2],
+        [0.4, 0.4, 0.4],
+        [0.3, 0.3, 0.3]
+      ],
+      "post_dropouts": [
+        [0.2, 0.2, 0.2, 0.2],
+        [0.3, 0.3, 0.3, 0.3],
+        [0.4, 0.4, 0.4, 0.4],
+        [0.5, 0.5, 0.5, 0.5]
+      ],
+      "batch_size": [32, 64],
+      "learning_rate": [0.0005, 0.001, 0.002, 0.005],
+      "M": [0.2, 0.4, 0.6, 0.8, 1],
+      "T": [0, 0.2, 0.4, 0.6, 0.8, 1],
+      "A": [0, 0.2, 0.4, 0.6, 0.8, 1],
+      "V": [0, 0.2, 0.4, 0.6, 0.8, 1],
+      "text_weight_decay": [0, 0.001, 0.0001, 1e-5],
+      "audio_weight_decay": [0, 0.001, 0.0001, 1e-5],
+      "video_weight_decay": [0, 0.001, 0.0001, 1e-5],
+      "weight_decay": [0.0, 0.001, 0.005, 0.01]
+    }
+  },
+  "mlmf": {
+    "commonParams": {
+      "need_data_aligned": false,
+      "need_model_aligned": false,
+      "need_normalized": true,
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "dropouts",
+        "rank",
+        "batch_size",
+        "learning_rate",
+        "factor_lr",
+        "post_text_dim",
+        "post_audio_dim",
+        "post_video_dim",
+        "post_dropouts",
+        "M",
+        "T",
+        "A",
+        "V",
+        "text_weight_decay",
+        "audio_weight_decay",
+        "video_weight_decay",
+        "weight_decay"
+      ],
+      "hidden_dims": [
+        [128, 16, 128],
+        [64, 16, 64],
+        [128, 32, 128],
+        [256, 32, 256],
+        [64, 32, 64]
+      ],
+      "post_text_dim": [8, 16, 32, 64],
+      "post_audio_dim": [4, 5],
+      "post_video_dim": [8, 16, 32, 64],
+      "post_dropouts": [
+        [0.2, 0.2, 0.2, 0.2],
+        [0.3, 0.3, 0.3, 0.3],
+        [0.4, 0.4, 0.4, 0.4],
+        [0.5, 0.5, 0.5, 0.5]
+      ],
+      "dropouts": [
+        [0.5, 0.5, 0.5],
+        [0.3, 0.3, 0.3],
+        [0.2, 0.2, 0.2],
+        [0.4, 0.4, 0.4]
+      ],
+      "rank": [3, 4, 5, 6],
+      "batch_size": [32, 64, 128],
+      "learning_rate": [0.0005, 0.001, 0.002, 0.005],
+      "factor_lr": [0.0001, 0.0005, 0.001],
+      "M": [0.2, 0.4, 0.6, 0.8, 1],
+      "T": [0, 0.2, 0.4, 0.6, 0.8, 1],
+      "A": [0, 0.2, 0.4, 0.6, 0.8, 1],
+      "V": [0, 0.2, 0.4, 0.6, 0.8, 1],
+      "text_weight_decay": [0, 0.001, 0.0001, 1e-5],
+      "audio_weight_decay": [0, 0.001, 0.0001, 1e-5],
+      "video_weight_decay": [0, 0.001, 0.0001, 1e-5],
+      "weight_decay": [0.0, 0.0001, 0.001, 0.005]
+    }
+  },
+  "mlf_dnn": {
+    "commonParams": {
+      "need_data_aligned": false,
+      "need_model_aligned": false,
+      "need_normalized": true,
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "text_out",
+        "post_fusion_dim",
+        "post_text_dim",
+        "post_audio_dim",
+        "post_video_dim",
+        "dropouts",
+        "post_dropouts",
+        "batch_size",
+        "learning_rate",
+        "M",
+        "T",
+        "A",
+        "V",
+        "text_weight_decay",
+        "audio_weight_decay",
+        "video_weight_decay",
+        "weight_decay"
+      ],
+      "hidden_dims": [
+        [128, 16, 128],
+        [64, 16, 64],
+        [128, 32, 128],
+        [256, 32, 256],
+        [64, 32, 64]
+      ],
+      "text_out": [32, 64, 128, 256],
+      "post_fusion_dim": [16, 32, 64, 128],
+      "post_text_dim": [8, 16, 32, 64],
+      "post_audio_dim": [4, 5],
+      "post_video_dim": [8, 16, 32, 64],
+      "dropouts": [
+        [0.3, 0.3, 0.3],
+        [0.2, 0.2, 0.2],
+        [0.4, 0.4, 0.4],
+        [0.3, 0.3, 0.3]
+      ],
+      "post_dropouts": [
+        [0.2, 0.2, 0.2, 0.2],
+        [0.3, 0.3, 0.3, 0.3],
+        [0.4, 0.4, 0.4, 0.4],
+        [0.5, 0.5, 0.5, 0.5]
+      ],
+      "batch_size": [32, 64, 128],
+      "learning_rate": [0.0005, 0.001, 0.002, 0.005],
+      "M": [0.2, 0.4, 0.6, 0.8, 1],
+      "T": [0, 0.2, 0.4, 0.6, 0.8, 1],
+      "A": [0, 0.2, 0.4, 0.6, 0.8, 1],
+      "V": [0, 0.2, 0.4, 0.6, 0.8, 1],
+      "text_weight_decay": [0, 0.001, 0.0001, 1e-5],
+      "audio_weight_decay": [0, 0.001, 0.0001, 1e-5],
+      "video_weight_decay": [0, 0.001, 0.0001, 1e-5],
+      "weight_decay": [0.0, 0.0001, 0.001, 0.005]
+    }
+  },
+  "afn_ag_msa": {
+    "commonParams": {
+      "need_data_aligned": false,
+      "need_model_aligned": false,
+      "need_normalized": false,
+      "use_bert": true,
+      "use_finetune": false,
+      "save_labels": false,
+      "excludeZero": true,
+      "early_stop": 8,
+      "update_epochs": 4,
+      "transformers": "bert",
+      "pretrained": "bert-base-uncased"
+    },
+    "debugParams": {
+      "d_paras": [
+        "batch_size",
+        "learning_rate_bert",
+        "learning_rate_audio",
+        "learning_rate_video",
+        "learning_rate_other",
+        "weight_decay_bert",
+        "weight_decay_other",
+        "weight_decay_audio",
+        "weight_decay_video",
+        "a_lstm_hidden_size",
+        "v_lstm_hidden_size",
+        "text_out",
+        "audio_out",
+        "video_out",
+        "a_lstm_dropout",
+        "v_lstm_dropout",
+        "t_bert_dropout",
+        "post_fusion_dim",
+        "post_text_dim",
+        "post_audio_dim",
+        "post_video_dim",
+        "post_fusion_dropout",
+        "post_text_dropout",
+        "post_audio_dropout",
+        "post_video_dropout",
+        "H"
+      ],
+      "batch_size": [16, 32],
+      "learning_rate_bert": [5e-5],
+      "learning_rate_audio": [0.0001, 0.001, 0.005],
+      "learning_rate_video": [0.0001, 0.001, 0.005],
+      "learning_rate_other": [0.0001, 0.001],
+      "weight_decay_bert": [0.001, 0.01],
+      "weight_decay_audio": [0.0, 0.001, 0.01],
+      "weight_decay_video": [0.0, 0.001, 0.01],
+      "weight_decay_other": [0.001, 0.01],
+      "a_lstm_hidden_size": [16, 32],
+      "v_lstm_hidden_size": [32, 64],
+      "a_lstm_layers": 1,
+      "v_lstm_layers": 1,
+      "text_out": 768,
+      "audio_out": [16],
+      "video_out": [32],
+      "a_lstm_dropout": [0.0],
+      "v_lstm_dropout": [0.0],
+      "t_bert_dropout": [0.1],
+      "post_fusion_dim": [64, 128],
+      "post_text_dim": [32, 64],
+      "post_audio_dim": [16, 32],
+      "post_video_dim": [16, 32],
+      "post_fusion_dropout": [0.1, 0.0],
+      "post_text_dropout": [0.1, 0.0],
+      "post_audio_dropout": [0.1, 0.0],
+      "post_video_dropout": [0.1, 0.0],
+      "H": [3.0]
+    }
+  },
+  "mmim": {
+    "commonParams": {
+      "need_data_aligned": false,
+      "need_model_aligned": false,
+      "use_finetune": false,
+      "use_bert": true,
+      "early_stop": 8,
+      "update_epochs": 2,
+      "transformers": "bert",
+      "pretrained": "bert-base-uncased",
+      "add_va": false,
+      "contrast": true,
+      "mmilb_mid_activation": "ReLU",
+      "mmilb_last_activation": "Tanh",
+      "cpc_activation": "Tanh",
+      "optim": "Adam",
+      "mem_size": 1,
+      "when": 20,
+      "bidirectional": true
+    },
+    "debugParams": {
+      "d_paras": [
+        "dropout_a",
+        "dropout_v",
+        "dropout_prj",
+        "n_layer",
+        "cpc_layers",
+        "d_vh",
+        "d_ah",
+        "d_vout",
+        "d_aout",
+        "d_prjh",
+
+        "batch_size",
+        "grad_clip",
+        "lr_main",
+        "weight_decay_main",
+        "lr_bert",
+        "weight_decay_bert",
+        "lr_mmilb",
+        "weight_decay_mmilb",
+
+        "alpha",
+        "beta"
+      ],
+      "batch_size": [16, 32],
+      "grad_clip": [0.6, 0.8, 1.0],
+      "lr_main": [0.0001, 0.001, 0.005],
+      "weight_decay_main": [0.0, 0.001, 1e-4],
+      "lr_bert": [0.0001, 0.001, 0.005],
+      "weight_decay_bert": [0.0, 0.001, 1e-4],
+      "lr_mmilb": [0.0001, 0.001, 0.005],
+      "weight_decay_mmilb": [0.0, 0.001, 1e-4],
+
+      "alpha": [0.0, 0.1, 0.2, 0.3, 0.4],
+      "beta": [0.0, 0.1, 0.2, 0.3, 0.4],
+      "dropout_a": [0.0, 0.1, 0.2, 0.3, 0.4],
+      "dropout_v": [0.0, 0.1, 0.2, 0.3, 0.4],
+      "dropout_prj": [0.0, 0.1, 0.2, 0.3, 0.4],
+      "n_layer": [1, 2, 3, 4],
+      "cpc_layers": [1, 2, 3, 4],
+      "d_vh": [16, 32, 64, 128],
+      "d_ah": [16, 32, 64, 128],
+      "d_vout": [16, 32, 64, 128],
+      "d_aout": [16, 32, 64, 128],
+      "d_prjh": [64, 128, 256, 512]
+    }
+  },
+  "tfr_net": {
+    "commonParams": {
+      "data_missing": true,
+      "deal_missing": true,
+      "need_data_aligned": false,
+      "need_model_aligned": false,
+      "without_generator": false,
+      "use_linear": true,
+      "early_stop": 6,
+      "use_bert": true,
+      "use_gen_fusion": false,
+      "use_linear_gen": false,
+      "use_bert_finetune": true,
+      "alignmentModule": "crossmodal_attn",
+      "generatorModule": "linear",
+      "fusionModule": "c_gate",
+      "weight_sim_loss": 5,
+      "attn_mask": true,
+      "update_epochs": 4,
+      "num_temporal_head": 1,
+      "missing_rate": [0.2, 0.2, 0.2],
+      "missing_seed": [1111, 1111, 1111]
+    },
+    "debugParams": {
+      "d_paras": [
+        "recloss_type",
+        "conv1d_kernel_size_l",
+        "conv1d_kernel_size_a",
+        "conv1d_kernel_size_v",
+        "text_dropout",
+        "attn_dropout",
+        "attn_dropout_a",
+        "attn_dropout_v",
+        "relu_dropout",
+        "embed_dropout",
+        "res_dropout",
+        "dst_feature_dim_nheads",
+        "nlevels",
+        "trans_hid_t",
+        "trans_hid_a",
+        "trans_hid_v",
+        "trans_hid_t_drop",
+        "trans_hid_a_drop",
+        "trans_hid_v_drop",
+        "fusion_t_in",
+        "fusion_a_in",
+        "fusion_v_in",
+        "fusion_t_hid",
+        "fusion_a_hid",
+        "fusion_v_hid",
+        "fusion_gru_layers",
+        "fusion_drop",
+        "cls_hidden_dim",
+        "cls_dropout",
+        "grad_clip",
+        "batch_size",
+        "learning_rate_bert",
+        "learning_rate_other",
+        "patience",
+        "weight_decay_bert",
+        "weight_decay_other",
+        "weight_gen_loss"
+      ],
+      "recloss_type": ["SmoothL1Loss", "MSELoss", "combine"],
+      "conv1d_kernel_size_l": [1, 3, 5],
+      "conv1d_kernel_size_a": [1, 3, 5],
+      "conv1d_kernel_size_v": [1, 3, 5],
+      "text_dropout": [0.1, 0.2, 0.3],
+      "attn_dropout": [0.0, 0.1, 0.2, 0.3, 0.4],
+      "attn_dropout_a": [0.0, 0.1, 0.2],
+      "attn_dropout_v": [0.0, 0.1, 0.2],
+      "relu_dropout": [0.0, 0.1, 0.2],
+      "embed_dropout": [0.0, 0.1, 0.2],
+      "res_dropout": [0.0, 0.1, 0.2],
+      "dst_feature_dim_nheads": [
+        [30, 6],
+        [30, 10],
+        [32, 8],
+        [36, 6],
+        [40, 5],
+        [40, 8],
+        [40, 10],
+        [48, 8],
+        [50, 10]
+      ],
+      "nlevels": [2, 3, 4],
+      "trans_hid_t": [32, 40, 64, 80, 128],
+      "trans_hid_t_drop": [0.0, 0.1, 0.2, 0.3],
+      "trans_hid_a": [20, 32, 40, 48, 64, 80],
+      "trans_hid_a_drop": [0.0, 0.1, 0.2, 0.3],
+      "trans_hid_v": [20, 32, 40, 48, 64, 80],
+      "trans_hid_v_drop": [0.0, 0.1, 0.2, 0.3],
+      "fusion_t_in": [30, 32, 36, 40, 48],
+      "fusion_a_in": [30, 32, 36, 40, 48],
+      "fusion_v_in": [30, 32, 36, 40, 48],
+      "fusion_t_hid": [20, 30, 32, 36, 40, 48],
+      "fusion_a_hid": [20, 30, 32, 36, 40, 48],
+      "fusion_v_hid": [20, 30, 32, 36, 40, 48],
+      "fusion_gru_layers": [1, 2, 3],
+      "fusion_drop": [0.1, 0.2, 0.3],
+      "cls_hidden_dim": [64, 96, 128],
+      "cls_dropout": [0.0, 0.1, 0.2],
+      "batch_size": [24, 32, 48],
+      "learning_rate_bert": [2e-5, 1e-5],
+      "learning_rate_other": [5e-4, 1e-3, 2e-3],
+      "grad_clip": [0.6, 0.8, 1.0],
+      "patience": [5, 10],
+      "weight_decay_bert": [0.0, 0.0001],
+      "weight_decay_other": [0.0, 0.001],
+      "weight_gen_loss": [
+        [5e-6, 2e-6, 2e-5],
+        [2e-6, 1e-6, 2e-6],
+        [4e-6, 2e-6, 4e-6],
+        [1e-6, 5e-7, 1e-6],
+        [4e-6, 1e-6, 2e-6]
+      ]
+    }
+  }
+}
