@@ -1,7 +1,7 @@
 ## 执行说明
 运行主程序：
 ```bash
-python main.py
+python __main__.py
 ```
 ## 配置说明
 配置文件位于：
@@ -27,7 +27,7 @@ config/config_regression.json
 ## Execution Instructions
 To run the main program:
 ```bash
-python main.py
+python __main__.py
 ```
 ## Configuration Instructions
 The configuration file is located at:
