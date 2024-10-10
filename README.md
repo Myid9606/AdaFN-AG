@@ -19,7 +19,8 @@ config/config_regression.json
 - 相关文件配置
 ## 论文文档
 `AdaFN-AG小论文.pdf`：
-- 论文标题：《AdaFN-AG: 基于自适应特征归一化的多模态交互增强方法用于多模态情感分析》
+- 论文标题：[AdaFN-AG: Enhancing multimodal interaction with Adaptive Feature Normalization for multimodal sentiment analysis](https://www.sciencedirect.com/science/article/pii/S266730532400084X)
+
 - 收录期刊：ESCI期刊《Intelligent Systems with Applications》
 ---
 
@@ -45,6 +46,6 @@ The `trains` folder contains:
 - Related file configurations
 ## Research Paper
 `AdaFN-AG Research Paper.pdf`:
-- Title: "AdaFN-AG: Enhancing Multimodal Interaction with Adaptive Feature Normalization for Multimodal Sentiment Analysis"
+- Title: [AdaFN-AG: Enhancing multimodal interaction with Adaptive Feature Normalization for multimodal sentiment analysis](https://www.sciencedirect.com/science/article/pii/S266730532400084X)
 - Journal: ESCI Journal "Intelligent Systems with Applications"
 
