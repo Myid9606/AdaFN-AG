@@ -1,6 +1,3 @@
-
-中文格式整理：
----
 ## 执行说明
 运行主程序：
 ```bash
@@ -25,8 +22,8 @@ config/config_regression.json
 - 论文标题：《AdaFN-AG: 基于自适应特征归一化的多模态交互增强方法用于多模态情感分析》
 - 收录期刊：ESI期刊《智能系统与应用》（Intelligent Systems with Applications）
 ---
-英文翻译格式：
----
+
+
 ## Execution Instructions
 To run the main program:
 ```bash
