@@ -1,3 +1,4 @@
+## 简体中文
 ## 执行说明
 运行主程序：
 ```bash
@@ -23,7 +24,7 @@ config/config_regression.json
 
 - 收录期刊：ESCI期刊《Intelligent Systems with Applications》
 ---
-
+## En
 
 ## Execution Instructions
 To run the main program:
